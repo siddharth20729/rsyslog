@@ -1521,6 +1521,19 @@ else
 fi
 AM_CONDITIONAL(ENABLE_OMKAFKA, test x$enable_omkafka = xyes)
 
+# CHICAGO
+
+AC_ARG_ENABLE(omchicago,
+        [AS_HELP_STRING([--enable-omchicago],[Compiles omchicago module @<:@default=no@:>@])],
+        [case "${enableval}" in
+         yes) enable_omchicago="yes" ;;
+          no) enable_omchicago="no" ;;
+           *) AC_MSG_ERROR(bad value ${enableval} for --enable-omchicago) ;;
+         esac],
+        [enable_omchicago=no]
+)
+AM_CONDITIONAL(ENABLE_OMCHICAGO, test x$enable_omchicago = xyes)
+
 #MONGODB SUPPORT
 
 AC_ARG_ENABLE(ommongodb,
@@ -1788,6 +1801,7 @@ AC_CONFIG_FILES([Makefile \
 		plugins/imklog/Makefile \
 		plugins/omhdfs/Makefile \
 		plugins/omkafka/Makefile \
+		plugins/omchicago/Makefile \
 		plugins/omprog/Makefile \
 		plugins/mmexternal/Makefile \
 		plugins/omstdout/Makefile \
@@ -1875,6 +1889,7 @@ echo
 echo "---{ output plugins }---"
 echo "    Mail support enabled:                     $enable_mail"
 echo "    omkafka module will be compiled:          $enable_omkafka"
+echo "    omchicago module will be compiled:        $enable_omchicago"
 echo "    omprog module will be compiled:           $enable_omprog"
 echo "    omstdout module will be compiled:         $enable_omstdout"
 echo "    omjournal module will be compiled:        $enable_omjournal"

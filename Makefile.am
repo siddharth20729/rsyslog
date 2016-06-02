@@ -187,6 +187,10 @@ if ENABLE_MAIL
 SUBDIRS += plugins/ommail
 endif
 
+if ENABLE_OMCHICAGO
+SUBDIRS += plugins/omchicago
+endif
+
 if ENABLE_OMKAFKA
 SUBDIRS += plugins/omkafka
 endif
